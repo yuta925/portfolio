@@ -1,0 +1,31 @@
+# .github/workflows/deploy-to-vercel.yml
+name: Deploy to Vercel on Master Merge
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel Environment Variables
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build project
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          # もしVercelプロジェクトIDと組織IDが必要な場合（通常は自動検出されますが、明示的に指定したい場合）
+          # VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          # VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }} # Vercel CLIが認証に使用するトークン
