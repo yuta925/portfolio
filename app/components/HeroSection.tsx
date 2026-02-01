@@ -35,7 +35,7 @@ export default function HeroSection() {
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "linear",
+            ease: 'linear',
           }}
           className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-foreground/10 to-transparent blur-3xl"
         />
@@ -48,7 +48,7 @@ export default function HeroSection() {
           transition={{
             duration: 25,
             repeat: Infinity,
-            ease: "linear",
+            ease: 'linear',
           }}
           className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-gradient-to-r from-foreground/5 to-transparent blur-3xl"
         />
@@ -68,14 +68,15 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <span className="block">西岡 優太</span>
+            <span className="block">Yuta Nishioka</span>
             <motion.span
               className="block text-3xl sm:text-4xl md:text-5xl font-normal text-foreground/70 mt-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              Frontend Engineer
+              B.S. student in Information Engineering <br />
+              (Incoming M.S., Apr 2026)
             </motion.span>
           </motion.h1>
 
@@ -85,7 +86,9 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            美しいUIと最適なUXを通じて、デジタル体験を創造します。
+            ネットワーク科学×データ駆動解析（DMD）で拡散現象を研究
+            <br />
+            実務ではWeb開発で価値提供します。
           </motion.p>
 
           <motion.div
@@ -100,8 +103,8 @@ export default function HeroSection() {
               className="px-8 py-4 bg-foreground text-background rounded-full font-medium text-lg transition-all hover:shadow-lg"
               onClick={() =>
                 document
-                  .getElementById("projects")
-                  ?.scrollIntoView({ behavior: "smooth" })
+                  .getElementById('projects')
+                  ?.scrollIntoView({ behavior: 'smooth' })
               }
             >
               プロジェクトを見る
@@ -112,8 +115,8 @@ export default function HeroSection() {
               className="px-8 py-4 border-2 border-foreground/20 rounded-full font-medium text-lg transition-all hover:border-foreground/40"
               onClick={() =>
                 document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" })
+                  .getElementById('contact')
+                  ?.scrollIntoView({ behavior: 'smooth' })
               }
             >
               お問い合わせ
@@ -131,12 +134,12 @@ export default function HeroSection() {
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           className="flex flex-col items-center gap-2 text-foreground/60 cursor-pointer"
           onClick={() =>
             document
-              .getElementById("about")
-              ?.scrollIntoView({ behavior: "smooth" })
+              .getElementById('about')
+              ?.scrollIntoView({ behavior: 'smooth' })
           }
         >
           <span className="text-sm">スクロール</span>
