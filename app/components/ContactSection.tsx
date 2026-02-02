@@ -5,10 +5,7 @@ import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   Mail,
-  Phone,
-  MapPin,
   Github,
-  Linkedin,
   Twitter,
   Send,
   Check,
@@ -28,18 +25,6 @@ const contactInfo = [
     label: "メール",
     value: "yutarou041@gmail.com",
     href: "mailto:yutarou041@gmail.com",
-  },
-  {
-    icon: Phone,
-    label: "電話",
-    value: "+81-70-8903-1674",
-    href: "tel:+81-70-8903-1674",
-  },
-  {
-    icon: MapPin,
-    label: "住所",
-    value: "兵庫, 日本",
-    href: null,
   },
 ];
 
@@ -125,7 +110,7 @@ export default function ContactSection() {
               お問い合わせ
             </h2>
             <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-              プロジェクトのご相談やご質問がありましたら、お気軽にお声がけください。
+              採用に関するご連絡やご質問がありましたら、お気軽にお声がけください。
             </p>
           </motion.div>
 
@@ -133,7 +118,9 @@ export default function ContactSection() {
             {/* コンタクトフォーム */}
             <motion.div variants={itemVariants}>
               <div className="bg-background rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold mb-6">メッセージを送る</h3>
+                <h3 className="text-2xl font-bold mb-6">
+                  メッセージを送る
+                </h3>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   {/* 名前 */}
@@ -221,7 +208,7 @@ export default function ContactSection() {
                         "focus:outline-none focus:ring-2 focus:ring-foreground/10",
                         errors.subject && "border-red-500"
                       )}
-                      placeholder="プロジェクトのご相談"
+                      placeholder="採用のご連絡"
                     />
                     {errors.subject && (
                       <p className="mt-1 text-sm text-red-500">
@@ -359,7 +346,7 @@ export default function ContactSection() {
               <div className="bg-background rounded-2xl p-8 shadow-lg">
                 <h3 className="text-2xl font-bold mb-4">お気軽にどうぞ！</h3>
                 <p className="text-foreground/70 leading-relaxed">
-                  新しいプロジェクトのご相談、コラボレーションのお話、技術的な質問など、何でもお気軽にお声がけください。通常24時間以内に返信いたします。
+                  採用に関するご質問や面談のご相談など、何でもお気軽にお声がけください。通常24時間以内に返信いたします。
                 </p>
               </div>
             </motion.div>

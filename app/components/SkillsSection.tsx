@@ -8,19 +8,19 @@ const skillCategories = [
   {
     name: "Frontend",
     skills: [
-      { name: "React", level: 90, color: "from-blue-500 to-cyan-500" },
-      { name: "TypeScript", level: 85, color: "from-blue-600 to-blue-700" },
-      { name: "Next.js", level: 80, color: "from-gray-800 to-gray-900" },
-      { name: "Tailwind CSS", level: 90, color: "from-teal-500 to-blue-600" },
+      { name: "React", level: "実務/個人開発", color: "from-blue-500 to-cyan-500" },
+      { name: "TypeScript", level: "実務/個人開発", color: "from-blue-600 to-blue-700" },
+      { name: "Next.js", level: "実務/個人開発", color: "from-gray-800 to-gray-900" },
+      { name: "Tailwind CSS", level: "実務/個人開発", color: "from-teal-500 to-blue-600" },
     ],
   },
   {
     name: "Tools & Others",
     skills: [
-      { name: "Git", level: 85, color: "from-orange-500 to-red-500" },
-      { name: "Docker", level: 70, color: "from-blue-400 to-blue-600" },
-      { name: "Figma", level: 80, color: "from-purple-500 to-pink-500" },
-      { name: "Node.js", level: 75, color: "from-green-600 to-green-700" },
+      { name: "Git", level: "実務/個人開発", color: "from-orange-500 to-red-500" },
+      { name: "Docker", level: "実務/個人開発", color: "from-blue-400 to-blue-600" },
+      { name: "Figma", level: "個人開発", color: "from-pink-500 to-rose-500" },
+      { name: "Node.js", level: "実務/個人開発", color: "from-green-600 to-green-700" },
     ],
   },
 ];
@@ -50,39 +50,6 @@ export default function SkillsSection() {
     },
   };
 
-  const SkillBar = ({
-    skill,
-    index,
-  }: {
-    skill: (typeof skillCategories)[0]["skills"][0];
-    index: number;
-  }) => {
-    return (
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-        transition={{ duration: 0.6, delay: 0.1 * index }}
-        className="space-y-2"
-      >
-        <div className="flex justify-between items-center">
-          <span className="font-medium">{skill.name}</span>
-          <span className="text-sm text-foreground/60">{skill.level}%</span>
-        </div>
-        <div className="w-full bg-foreground/10 rounded-full h-2 overflow-hidden">
-          <motion.div
-            initial={{ width: 0 }}
-            animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
-            transition={{ duration: 1, delay: 0.2 * index, ease: "easeOut" }}
-            className={clsx(
-              "h-full rounded-full bg-gradient-to-r",
-              skill.color
-            )}
-          />
-        </div>
-      </motion.div>
-    );
-  };
-
   return (
     <section id="skills" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,7 +64,7 @@ export default function SkillsSection() {
           <motion.div className="text-center" variants={itemVariants}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">スキル</h2>
             <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-              日々の業務で使用している技術スタックと、その習熟度を紹介します。
+              日々の業務で使用している技術スタックと、利用経験のある技術を紹介します。
             </p>
           </motion.div>
 
@@ -126,19 +93,6 @@ export default function SkillsSection() {
             variants={itemVariants}
             className="grid md:grid-cols-2 gap-8"
           >
-            {/* スキルバー */}
-            <div className="space-y-6">
-              <h3 className="text-xl font-bold mb-6">
-                {skillCategories[activeCategory].name} Skills
-              </h3>
-              <div className="space-y-4">
-                {skillCategories[activeCategory].skills.map((skill, index) => (
-                  <SkillBar key={skill.name} skill={skill} index={index} />
-                ))}
-              </div>
-            </div>
-
-            {/* スキルカード */}
             <div className="grid grid-cols-2 gap-4">
               {skillCategories[activeCategory].skills.map((skill, index) => (
                 <motion.div
@@ -163,7 +117,7 @@ export default function SkillsSection() {
                   </div>
                   <h4 className="font-semibold mb-2">{skill.name}</h4>
                   <div className="text-sm text-foreground/60">
-                    {skill.level}% proficient
+                    {skill.level}
                   </div>
                 </motion.div>
               ))}

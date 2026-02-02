@@ -8,9 +8,11 @@ import ThemeToggle from "./ThemeToggle";
 
 const navigation = [
   { name: "プロフィール", href: "#about" },
-  { name: "スキル", href: "#skills" },
+  { name: "ハイライト", href: "#highlights" },
   { name: "プロジェクト", href: "#projects" },
   { name: "経歴", href: "#experience" },
+  { name: "研究", href: "#research" },
+  { name: "スキル", href: "#skills" },
   { name: "コンタクト", href: "#contact" },
 ];
 

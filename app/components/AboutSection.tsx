@@ -67,7 +67,7 @@ export default function AboutSection() {
               プロフィール
             </h2>
             <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-              フロントエンドエンジニアとして、ユーザーにとって価値のあるプロダクトを作ることを心がけています。
+              Webエンジニア / モバイルエンジニアとして、自社開発でユーザー価値を磨くことを志望しています。
             </p>
           </motion.div>
 
@@ -110,10 +110,10 @@ export default function AboutSection() {
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold">西岡 優太</h3>
                 <p className="text-lg text-foreground/70">
-                  フロントエンドエンジニアとして、ReactやNext.jsを用いたモダンなWebアプリケーションの開発に携わっています。
+                  Web / モバイル領域のエンジニアとして、ReactやNext.jsを用いた開発に取り組んでいます。
                 </p>
                 <p className="text-foreground/60">
-                  ユーザーインターフェースの美しさと機能性を両立させ、ユーザーが心地よく使えるプロダクトを作ることを心がけています。
+                  使いやすさと価値提供を重視し、プロダクトの成長に長期で関われる環境を求めています。
                 </p>
               </div>
 

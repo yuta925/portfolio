@@ -75,8 +75,8 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              B.S. student in Information Engineering <br />
-              (Incoming M.S., Apr 2026)
+              Web / Mobile Engineer <br />
+              自社開発志望・情報工学専攻
             </motion.span>
           </motion.h1>
 

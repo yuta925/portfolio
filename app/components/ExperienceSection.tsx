@@ -9,7 +9,7 @@ const experiences = [
     id: 1,
     company: "Quick Network株式会社（SellCa）",
     position: "ソフトウェアエンジニア（業務委託 / インターン）",
-    period: "—",
+    period: "2023/10 - 現在",
     location: "リモート",
     description:
       "企業データ基盤に関わる開発に従事。スクレイピング/正規化パイプラインの改善や、住所・電話番号などのデータクレンジング、運用改善を担当。",
