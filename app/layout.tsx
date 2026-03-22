@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">app/layout.tsx
+    <html lang="ja">
       <body className="antialiased">{children}</body>
     </html>
   );
