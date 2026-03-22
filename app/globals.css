@@ -1,40 +1,47 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f9fc;
+  --foreground: #111827;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Segoe UI", sans-serif;
+  --font-mono: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0e1422;
+    --foreground: #e5edf8;
   }
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  --background: #0e1422;
+  --foreground: #e5edf8;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* カスタムスクロールバー */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+.hero-surface {
+  background:
+    radial-gradient(circle at 18% 22%, rgb(37 99 235 / 0.1), transparent 45%),
+    radial-gradient(circle at 78% 15%, rgb(16 185 129 / 0.08), transparent 38%),
+    linear-gradient(145deg, var(--background), color-mix(in oklab, var(--background), var(--foreground) 4%));
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -44,30 +51,24 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--foreground);
-  border-radius: 4px;
-  opacity: 0.5;
+  background: color-mix(in oklab, var(--foreground), transparent 65%);
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  opacity: 0.8;
+  background: color-mix(in oklab, var(--foreground), transparent 50%);
 }
 
-/* レスポンシブデザインの調整 */
 @media (max-width: 640px) {
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  section {
+    scroll-margin-top: 4rem;
   }
 }
 
-/* タッチデバイス用の調整 */
 @media (hover: none) {
-  .hover\:scale-105:hover {
-    transform: none;
-  }
-  
+  .hover\:scale-105:hover,
   .hover\:shadow-lg:hover {
-    box-shadow: none;
+    transform: none;
+    box-shadow: inherit;
   }
 }

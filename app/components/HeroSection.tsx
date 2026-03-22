@@ -1,151 +1,88 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, FileText, Github, Mail } from "lucide-react";
+import { heroCtaLinks, profileKeywords } from "../data/portfolioData";
+
+const scrollToSection = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+};
 
 export default function HeroSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
   return (
-    <motion.section
-      ref={ref}
+    <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ y, opacity }}
+      className="relative min-h-screen pt-24 pb-16 flex items-center overflow-hidden"
     >
-      {/* 背景アニメーション */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-foreground/10" />
+      <div className="absolute inset-0 hero-surface" />
 
-      {/* フローティングシェイプ */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="relative max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
         <motion.div
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-          className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-foreground/10 to-transparent blur-3xl"
-        />
-        <motion.div
-          animate={{
-            x: [0, -100, 0],
-            y: [0, 100, 0],
-            rotate: [0, -180, -360],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-gradient-to-r from-foreground/5 to-transparent blur-3xl"
-        />
-      </div>
-
-      {/* メインコンテンツ */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-8"
+          transition={{ duration: 0.7 }}
+          className="max-w-4xl"
         >
-          <motion.h1
-            className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <span className="block">Yuta Nishioka</span>
-            <motion.span
-              className="block text-3xl sm:text-4xl md:text-5xl font-normal text-foreground/70 mt-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              Web / Mobile Engineer <br />
-              自社開発志望・情報工学専攻
-            </motion.span>
-          </motion.h1>
+          <p className="inline-flex items-center rounded-full border border-foreground/15 bg-background/70 px-3 py-1 text-xs sm:text-sm text-foreground/75 mb-6">
+            Web / Mobile Engineer Candidate
+          </p>
 
-          <motion.p
-            className="text-xl sm:text-2xl text-foreground/60 max-w-2xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            ネットワーク科学×データ駆動解析（DMD）で拡散現象を研究
-            <br />
-            実務ではWeb開発で価値提供します。
-          </motion.p>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight">
+            西岡 優太
+          </h1>
 
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
+          <p className="mt-4 text-xl sm:text-2xl text-foreground/80 leading-relaxed">
+            情報工学専攻 / 研究 × 実務 × 個人開発
+            <br className="hidden sm:block" />
+            自社開発志向・ユーザー価値重視
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-2 sm:gap-3">
+            {profileKeywords.map((keyword) => (
+              <span
+                key={keyword}
+                className="px-3 py-1.5 rounded-full text-sm border border-foreground/15 bg-background/70"
+              >
+                {keyword}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-8 grid sm:grid-cols-3 gap-3">
+            <button
+              onClick={() => scrollToSection("projects")}
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-foreground text-background font-medium hover:opacity-90 transition-opacity"
+            >
+              成果物を見る
+              <ArrowRight size={18} />
+            </button>
+            <a
+              href={heroCtaLinks.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg border border-foreground/20 hover:border-foreground/35 transition-colors"
+            >
+              <Github size={18} />
+              GitHubを見る
+            </a>
+            <a
+              href={heroCtaLinks.resume}
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg border border-foreground/20 hover:border-foreground/35 transition-colors"
+            >
+              <FileText size={18} />
+              Resumeの相談
+            </a>
+          </div>
+
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="mt-4 inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground transition-colors"
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-foreground text-background rounded-full font-medium text-lg transition-all hover:shadow-lg"
-              onClick={() =>
-                document
-                  .getElementById('projects')
-                  ?.scrollIntoView({ behavior: 'smooth' })
-              }
-            >
-              プロジェクトを見る
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border-2 border-foreground/20 rounded-full font-medium text-lg transition-all hover:border-foreground/40"
-              onClick={() =>
-                document
-                  .getElementById('contact')
-                  ?.scrollIntoView({ behavior: 'smooth' })
-              }
-            >
-              お問い合わせ
-            </motion.button>
-          </motion.div>
+            <Mail size={16} />
+            連絡する
+          </button>
         </motion.div>
       </div>
-
-      {/* スクロールインジケーター */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.2 }}
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="flex flex-col items-center gap-2 text-foreground/60 cursor-pointer"
-          onClick={() =>
-            document
-              .getElementById('about')
-              ?.scrollIntoView({ behavior: 'smooth' })
-          }
-        >
-          <span className="text-sm">スクロール</span>
-          <ChevronDown size={20} />
-        </motion.div>
-      </motion.div>
-    </motion.section>
+    </section>
   );
 }

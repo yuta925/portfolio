@@ -56,7 +56,7 @@ export default function SkillsSection() {
         <motion.div
           ref={ref}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          animate={isInView ? 'visible' : 'hidden'}
           variants={containerVariants}
           className="space-y-16"
         >
@@ -76,10 +76,10 @@ export default function SkillsSection() {
                   key={category.name}
                   onClick={() => setActiveCategory(index)}
                   className={clsx(
-                    "px-6 py-3 rounded-full font-medium transition-all duration-300",
+                    'px-6 py-3 rounded-full font-medium transition-all duration-300',
                     activeCategory === index
-                      ? "bg-foreground text-background shadow-lg"
-                      : "text-foreground/60 hover:text-foreground"
+                      ? 'bg-foreground text-background shadow-lg'
+                      : 'text-foreground/60 hover:text-foreground',
                   )}
                 >
                   {category.name}
@@ -109,8 +109,8 @@ export default function SkillsSection() {
                 >
                   <div
                     className={clsx(
-                      "w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r flex items-center justify-center text-white font-bold text-xl",
-                      skill.color
+                      'w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r flex items-center justify-center text-white font-bold text-xl',
+                      skill.color,
                     )}
                   >
                     {skill.name.charAt(0)}
@@ -131,7 +131,7 @@ export default function SkillsSection() {
           >
             <h3 className="text-xl font-bold mb-4">現在学習中</h3>
             <div className="flex flex-wrap justify-center gap-3">
-              {["Python", "Go", "Swift"].map((skill) => (
+              {['TypeScript', 'Python', 'Swift'].map((skill) => (
                 <motion.span
                   key={skill}
                   whileHover={{ scale: 1.1 }}
