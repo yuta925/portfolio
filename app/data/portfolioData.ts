@@ -6,12 +6,11 @@ export const navigationItems = [
   { name: '経歴', href: '#experience' },
   { name: '研究', href: '#research' },
   { name: 'スキル', href: '#skills' },
-  { name: 'コンタクト', href: '#contact' },
 ] as const;
 
 export const heroCtaLinks = {
   github: 'https://github.com/yuta925',
-  contact: '#contact',
+  contact: 'mailto:yutarou041@gmail.com',
   resume:
     'mailto:yutarou041@gmail.com?subject=%E5%B1%A5%E6%AD%B4%E6%9B%B8%E9%80%81%E4%BB%98%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87',
 } as const;
@@ -112,6 +111,7 @@ export const projectItems = [
 ] as const;
 
 export const profileKeywords = [
+  '大学院修士1年',
   '情報工学専攻',
   '研究 × 実務 × 個人開発',
   '自社開発志向',

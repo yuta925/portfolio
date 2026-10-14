@@ -21,7 +21,8 @@ export default function AboutSection() {
           <div className="max-w-3xl">
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">プロフィール</h2>
             <p className="text-lg text-foreground/75 leading-relaxed">
-              情報工学を専攻し、研究で培った分析力を実務と個人開発に接続しながら、
+              関西学院大学大学院で情報工学を専攻する修士1年です。
+              ネットワーク科学の研究で培った分析力を実務と個人開発に接続しながら、
               ユーザー価値につながるWeb / モバイルプロダクト開発に取り組んでいます。
             </p>
           </div>

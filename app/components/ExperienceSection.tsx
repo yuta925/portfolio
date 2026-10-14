@@ -73,10 +73,23 @@ const experiences = [
 
 const education = [
   {
+    id: 2,
+    institution: "関西学院大学大学院",
+    degree: "情報工学専攻（修士課程・修士1年）",
+    period: "2026年4月 - 現在",
+    location: "兵庫, 日本",
+    description:
+      "ネットワーク科学を研究。Dynamic Mode Decomposition（DMD）を用いて、ネットワーク上の流行現象の分析方法を検討している。",
+    achievements: [
+      "ネットワーク上の流行現象のシミュレーションとデータ分析",
+      "DMDを用いた流行ダイナミクスの解析手法の検討",
+    ],
+  },
+  {
     id: 1,
     institution: "関西学院大学",
     degree: "情報工学課程（学士）",
-    period: "2022年 - 2026年（予定）",
+    period: "2022年4月 - 2026年3月（卒業）",
     location: "兵庫, 日本",
     description:
       "ネットワーク科学・データ駆動解析を中心に学習。卒業研究では、ネットワーク上の拡散/流行過程（nSIR等）に対して Dynamic Mode Decomposition（DMD）を用いた解析・予測・解釈に取り組む。",
@@ -238,7 +251,7 @@ export default function ExperienceSection() {
           {/* 学歴セクション */}
           <motion.div variants={itemVariants}>
             <h3 className="text-2xl font-bold mb-8 text-center">学歴</h3>
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto space-y-6">
               {education.map((edu, index) => (
                 <motion.div
                   key={edu.id}

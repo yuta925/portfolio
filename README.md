@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 西岡優太のポートフォリオ
 
-## Getting Started
+研究・実務・個人開発の取り組みを紹介するポートフォリオサイトです。
 
-First, run the development server:
+**公開URL:** https://portfolio-topaz-sigma-53.vercel.app
 
-```bash
+## スクリーンショット
+
+![ポートフォリオのトップページ](docs/screenshots/portfolio.png)
+
+## 主な内容
+
+- プロフィール、就活軸、実績、成果物、経歴、研究、スキル
+- ライト / ダークテーマの切り替え
+- メールリンクからの連絡
+
+## 技術スタック
+
+| 用途 | 技術 |
+| --- | --- |
+| フレームワーク | Next.js 15（App Router）、React 19 |
+| 言語 | TypeScript |
+| スタイル | Tailwind CSS 4、clsx |
+| アニメーション | Framer Motion |
+| アイコン | Lucide React |
+| 品質チェック | ESLint 9、TypeScript、GitHub Actions |
+| ホスティング | Vercel |
+
+## ローカル開発
+
+Node.js 22 と npm を使用します。
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+http://localhost:3000 を開いて確認できます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 品質チェックと本番ビルド
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+npm run lint
+npm run typecheck
+npm run build
+npm start
+```
 
-## Learn More
+`main` 向けのプルリクエストと `main` への push 時に、GitHub ActionsでLint・型チェック・ビルドを実行します。
+既存のVercelデプロイワークフローは `main` への push 時に実行されます。
 
-To learn more about Next.js, take a look at the following resources:
+## コンテンツの編集
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `app/data/portfolioData.ts`: ナビゲーション、成果物、プロフィールのキーワードなど
+- `app/components/AboutSection.tsx`: 所属・自己紹介
+- `app/components/ExperienceSection.tsx`: 職歴・学歴
+- `app/components/HeroSection.tsx`: トップページの紹介とリンク

@@ -7,7 +7,6 @@ import ProjectsSection from "./components/ProjectsSection";
 import ExperienceSection from "./components/ExperienceSection";
 import ResearchSection from "./components/ResearchSection";
 import SkillsSection from "./components/SkillsSection";
-import ContactSection from "./components/ContactSection";
 
 export default function Home() {
   return (
@@ -23,7 +22,6 @@ export default function Home() {
         <ExperienceSection />
         <ResearchSection />
         <SkillsSection />
-        <ContactSection />
       </main>
     </div>
   );

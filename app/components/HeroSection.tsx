@@ -32,7 +32,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="mt-4 text-xl sm:text-2xl text-foreground/80 leading-relaxed">
-            情報工学専攻 / 研究 × 実務 × 個人開発
+            関西学院大学大学院 修士1年 / 情報工学専攻
             <br className="hidden sm:block" />
             自社開発志向・ユーザー価値重視
           </p>
@@ -74,13 +74,13 @@ export default function HeroSection() {
             </a>
           </div>
 
-          <button
-            onClick={() => scrollToSection("contact")}
+          <a
+            href={heroCtaLinks.contact}
             className="mt-4 inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground transition-colors"
           >
             <Mail size={16} />
-            連絡する
-          </button>
+            メールで連絡する
+          </a>
         </motion.div>
       </div>
     </section>
